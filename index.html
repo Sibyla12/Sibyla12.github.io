@@ -1,170 +1,294 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio MA2003B</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sibyla Vera Ávila - Data Science Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(135deg, #8A5CF5, #4A4AF4);
-  margin: 0;
-  padding: 40px;
-  color: #333;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-/* BOTÓN GITHUB GENERAL */
-.button-github {
-  background: #4A4AF4;
-  padding: 12px 22px;
-  color: white;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.25s ease;
-  display: inline-block;
-}
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            animation: fadeIn 1s ease-in;
+        }
 
-.button-github:hover {
-  transform: scale(1.07);
-  background: #6B6BFF;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-}
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
 
-/* CONTENEDOR PRINCIPAL */
-.cards {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+        .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
 
-/* TARJETAS */
-.card {
-  width: 320px;
-  background: white;
-  border-radius: 18px;
-  padding: 25px;
-  box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
-}
+        .bio {
+            max-width: 800px;
+            margin: 20px auto;
+            font-size: 1.1em;
+            line-height: 1.8;
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
 
-/* TÍTULOS */
-.card h2 {
-  margin-top: 0;
-  color: white;
-  padding: 18px;
-  border-radius: 15px;
-}
+        .social-links {
+            margin-top: 25px;
+        }
 
-/* SUBTÍTULO */
-.card h4 {
-  text-transform: uppercase;
-  color: #555;
-  margin-top: 10px;
-}
+        .social-links a {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 12px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
 
-/* BOTONES DE CASOS */
-.case-button {
-  padding: 10px 18px;
-  color: white;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.25s ease;
-  display: inline-block;
-  margin-top: 15px;
-}
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: #f8f9fa;
+        }
 
-/* Hover global para botones */
-.case-button:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-}
+        .projects-section {
+            padding: 40px 20px;
+        }
 
-/* Colores por caso */
-.case1 { background: #FF6CAB; }
-.case1:hover { background: #FF8EC2; }
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: white;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
 
-.case2 { background: #00C2FF; }
-.case2:hover { background: #45D7FF; }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
 
-.case3 { background: #00E298; }
-.case3:hover { background: #3FFFC0; }
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            animation: slideUp 0.6s ease-out;
+        }
 
-</style>
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .project-header {
+            padding: 30px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .project-card:nth-child(1) .project-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .project-card:nth-child(2) .project-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .project-card:nth-child(3) .project-header {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .project-header h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .project-type {
+            font-size: 0.9em;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-body {
+            padding: 30px;
+        }
+
+        .project-body p {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tech-tag {
+            background: #f0f0f0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            margin-top: 60px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <div class="container">
+        <header>
+            <h1>Sibyla Vera Ávila</h1>
+            <p class="subtitle">Data Scientist & Mathematics Student</p>
+            <div class="bio">
+                Estudiante de Ciencia de Datos y Matemáticas con experiencia en análisis estratégico, visualización y optimización aplicada utilizando R, Python y Excel. He desarrollado tableros interactivos, modelos predictivos y soluciones de optimización para contextos empresariales reales, incluyendo finanzas, marketing y salud. Con habilidades en la aplicación de técnicas estadísticas y de aprendizaje automático para respaldar la toma de decisiones basada en datos, y experiencia colaborativa utilizando GitHub.
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/sibyla-vera-%C3%A1vila-46109a326/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/sibyla-vera" target="_blank">GitHub</a>
+            </div>
+        </header>
 
-<!-- BOTÓN SUPERIOR -->
-<div style="text-align:center; margin-bottom: 40px;">
-  <a href="https://github.com/Sophiaalbarran/portfolio-ma2003b" 
-     target="_blank" 
-     class="button-github">
-    Ver repositorio completo en GitHub
-  </a>
-</div>
+        <section class="projects-section">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Factor Analysis</h3>
+                        <p class="project-type">Análisis Multivariado</p>
+                    </div>
+                    <div class="project-body">
+                        <p>Implementación de Análisis Factorial para identificar variables latentes y reducir la dimensionalidad de conjuntos de datos complejos. Este proyecto explora las relaciones subyacentes entre múltiples variables observadas, permitiendo una comprensión más profunda de la estructura de los datos.</p>
+                        <p>El análisis incluye la extracción de factores, rotación varimax y evaluación de la adecuación del modelo mediante pruebas estadísticas como KMO y Bartlett.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">scikit-learn</span>
+                            <span class="tech-tag">pandas</span>
+                            <span class="tech-tag">matplotlib</span>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Discriminant Analysis</h3>
+                        <p class="project-type">Clasificación Supervisada</p>
+                    </div>
+                    <div class="project-body">
+                        <p>Desarrollo de modelos de Análisis Discriminante Lineal (LDA) y Cuadrático (QDA) para clasificación de datos en categorías predefinidas. Este proyecto demuestra la capacidad de separar grupos mediante la creación de funciones discriminantes óptimas.</p>
+                        <p>Incluye validación cruzada, matrices de confusión y evaluación de métricas de rendimiento para determinar la precisión y efectividad del modelo en diferentes escenarios de clasificación.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">scikit-learn</span>
+                            <span class="tech-tag">NumPy</span>
+                            <span class="tech-tag">seaborn</span>
+                        </div>
+                    </div>
+                </div>
 
-<!-- TARJETAS -->
-<div class="cards">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Clustering Analysis</h3>
+                        <p class="project-type">Aprendizaje No Supervisado</p>
+                    </div>
+                    <div class="project-body">
+                        <p>Aplicación de técnicas de clustering como K-Means, clustering jerárquico y DBSCAN para descubrir patrones naturales en los datos sin etiquetas previas. Este proyecto identifica agrupaciones significativas y segmentaciones en conjuntos de datos multivariados.</p>
+                        <p>El análisis incluye la determinación del número óptimo de clusters mediante el método del codo y el coeficiente de silueta, junto con visualizaciones interpretativas de los resultados.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">scikit-learn</span>
+                            <span class="tech-tag">pandas</span>
+                            <span class="tech-tag">plotly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- CARD 1 -->
-  <div class="card">
-    <h2 style="background: linear-gradient(135deg, #FF6CAB, #FF8EC2);">Factor Analysis</h2>
-    <h4>Análisis multivariado</h4>
-    <p>
-      Implementación de Análisis Factorial para identificar variables latentes
-      y reducir dimensionalidad en conjuntos de datos complejos. Incluye extracción
-      de factores, rotación varimax y validación con pruebas KMO y Bartlett.
-    </p>
-
-    <a href="https://github.com/Sophiaalbarran/portfolio-ma2003b/tree/main/case-01-factor-analysis" 
-       target="_blank" 
-       class="case-button case1">
-      Ver Caso 1
-    </a>
-  </div>
-
-
-  <!-- CARD 2 -->
-  <div class="card">
-    <h2 style="background: linear-gradient(135deg, #00C2FF, #45D7FF);">Discriminant Analysis</h2>
-    <h4>Clasificación supervisada</h4>
-    <p>
-      Desarrollo de modelos LDA y QDA para clasificación de datos en categorías.
-      Incluye validación cruzada, matrices de confusión y evaluación de métricas
-      de rendimiento.
-    </p>
-
-    <a href="https://github.com/Sophiaalbarran/portfolio-ma2003b/tree/main/case-02-discriminant-analysis" 
-       target="_blank" 
-       class="case-button case2">
-      Ver Caso 2
-    </a>
-  </div>
-
-
-  <!-- CARD 3 -->
-  <div class="card">
-    <h2 style="background: linear-gradient(135deg, #00E298, #3FFFC0);">Clustering Analysis</h2>
-    <h4>Aprendizaje no supervisado</h4>
-    <p>
-      Aplicación de K-Means, clustering jerárquico y DBSCAN para descubrir
-      patrones naturales en datos sin etiquetas. Incluye método del codo, coeficiente
-      silhouette y visualizaciones interpretativas.
-    </p>
-
-    <a href="https://github.com/Sophiaalbarran/portfolio-ma2003b/tree/main/caso-03-megamart-customer" 
-       target="_blank" 
-       class="case-button case3">
-      Ver Caso 3
-    </a>
-  </div>
-
-</div>
-
+        <footer>
+            <p>&copy; 2025 Sibyla Vera Ávila | Data Science Portfolio</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Construido con pasión por el análisis de datos y la estadística</p>
+        </footer>
+    </div>
 </body>
 </html>
